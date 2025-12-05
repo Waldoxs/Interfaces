@@ -3,6 +3,7 @@ package org.osantos.poointerfaces.imprenta;
 import org.osantos.poointerfaces.imprenta.modelo.*;
 
 import static org.osantos.poointerfaces.imprenta.modelo.Genero.*;
+import static org.osantos.poointerfaces.imprenta.modelo.Imprimible.imprimir;
 
 public class EjemploImprenta {
     public static void main(String[] args) {
@@ -12,7 +13,8 @@ public class EjemploImprenta {
                 .addExperiencia("C embebido");
 
         Libro libro = new Libro(new Persona("Erick", "Gamma")
-                , "Patrón de diseños", PROGRAMACION);
+                , "Patrón de diseños",
+                PROGRAMACION);
         libro.addPagina(new Pagina("Patrón singletron"))
                 .addPagina(new Pagina("Patrón observador"))
                 .addPagina(new Pagina("Patrón factory"))
@@ -27,10 +29,15 @@ public class EjemploImprenta {
         imprimir(cv);
         imprimir(informe);
         imprimir(libro);
+
+        //Clase anónima en la interface
+        imprimir(new Imprimible() {
+
+        });
+
+        System.out.println(Imprimible.TEXTO_DEFECTO);
     }
 
-    public static void imprimir(Imprimible imprimible) {
-        System.out.println(imprimible.imprimir());
-    }
+
 
 }
