@@ -6,12 +6,13 @@ import static org.osantos.poointerfaces.imprenta.modelo.Genero.*;
 
 public class EjemploImprenta {
     public static void main(String[] args) {
-        Curriculum cv = new Curriculum("Oswaldo", "Ing. en Control y Automatización", "Resumen laboral");
-        cv.addExperiencia("Java");
-        cv.addExperiencia("Oracle DBA");
-        cv.addExperiencia("C embebido");
+        Curriculum cv = new Curriculum(new Persona("Oswaldo", "Santos"), "Ing. en Control y Automatización", "Resumen laboral");
+        cv.addExperiencia("Java")
+                .addExperiencia("Oracle DBA")
+                .addExperiencia("C embebido");
 
-        Libro libro = new Libro("Erick Gamma", "Patrón de diseños", PROGRAMACION);
+        Libro libro = new Libro(new Persona("Erick", "Gamma")
+                , "Patrón de diseños", PROGRAMACION);
         libro.addPagina(new Pagina("Patrón singletron"))
                 .addPagina(new Pagina("Patrón observador"))
                 .addPagina(new Pagina("Patrón factory"))
@@ -19,7 +20,9 @@ public class EjemploImprenta {
                 .addPagina(new Pagina("Patrón facade"));
 
 
-        Informe informe = new Informe("Piojo folder", "James LK", "Estudio de microservicios");
+        Informe informe = new Informe(new Persona("Piojo", " folder")
+                , new Persona("James ", "LK")
+                , "Estudio de microservicios");
 
         imprimir(cv);
         imprimir(informe);

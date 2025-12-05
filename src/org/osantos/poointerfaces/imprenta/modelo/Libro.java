@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Libro implements Imprimible{
     private List<Imprimible> paginas; //Lista de hoja de tipo genero de Hoja
-    private String autor;
+    private Persona autor;
     private String titulo;
     private Genero genero;
 
-    public Libro(String autor, String titulo, Genero genero) {
+    public Libro(Persona autor, String titulo, Genero genero) {
         this.autor = autor;
         this.titulo = titulo;
         this.genero = genero;
@@ -18,7 +18,7 @@ public class Libro implements Imprimible{
 
     public Libro addPagina(Imprimible pagina) {
         this.paginas.add(pagina);
-        return this;    //Retorna el this para que se pueda encadenar
+        return this;    //Retorna el this para que se pueda encadenar// Retorna la misma instancia
     }
 
     @Override
