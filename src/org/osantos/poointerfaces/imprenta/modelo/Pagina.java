@@ -1,6 +1,6 @@
 package org.osantos.poointerfaces.imprenta.modelo;
 
-public class Pagina extends Hoja{
+public class Pagina extends Hoja implements Imprimible{
     public Pagina(String contenido) {
         super(contenido);
     }
